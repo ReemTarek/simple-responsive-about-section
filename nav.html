@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="vstyle.css">
+<!--    <link rel="stylesheet" href="styleslider.css">
+ -->	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylenav.css">
+
+</head>
+<body>
+	
+<header>
+  <nav class="unica-one">
+    <div id="brand">
+      <div id="logo"><img id="logo" src="Eng Break Logo.webp"></div>
+    
+    </div>
+    <div id="menu">
+      <div id="menu-toggle">
+        <div id="menu-icon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <ul>
+        <li><a href="#hero-section">About</a></li>
+        <li><a href="#section01">Games</a></li>
+        <li><a href="#section02" class="activee">Register</a></li>
+        <li><a href="#section03">History</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div id="hero-section">
+    <div class="slider">
+            <div class="slide">
+                <a class="btn _1" href="#">Discover more</a>
+                <a class="btn _2" href="#">Regester now</a>
+            </div>
+            <div class="slide">
+                <a class="btn _3" href="#">Discover more</a>
+                <img class="ball" src="basketball.png">
+            </div>
+        <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-angle-left"></i></a>
+        <a class="next"onclick="plusSlides(1)">
+            <i class="fas fa-angle-right"></i></a>
+            
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+
+        </div>
+        
+        
+        
+
+  </div>
+</header>
+
+	<div class="row">
+  <div class="column video style="background-color:#F4FBFC;">
+    <div class="video-container">
+  <iframe src="https://player.vimeo.com/video/313858246"  width="420" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+    <!-- </iframe> -->
+  </div>
+  <div class="column about" style="background-color:#F4FBFC;">
+    <div class="aboutsection">
+    <h2 class="unica-one">About <span class="abouttitle">le-badanek haq</span></h2>
+    <p class="desc poppins">sports event aiming to increase the sporty awareness<br> of the youth in Egypt with a day full of various sports<br> and athelitic activities</p>
+    <div class="unica-one"><span class="spanabout"><img src="alliance.png"></span><p class="aboutp">El-Zamalek SC</p></div>
+    <div class="unica-one"><span class="spanabout"><img src="advertising.png"></span><p class="aboutp">Friday; 22-02-2019</p></div>
+    <div class="unica-one"><span class="spanabout"><img src="checkered_flag.png"></span><p class="aboutp">8:00AM : 5:00PM</p></div>
+</div>
+  </div>
+</div>
+
+
+<script>
+	$( () => {
+	
+	
+	$(window).scroll( () => {
+		var windowTop = $(window).scrollTop();
+		if(windowTop > 100) { $('nav').addClass('navShadow'); 
+    
+  }
+  else{ 
+    $('nav').removeClass('navShadow');
+   }
+	if(	windowTop > 100 ) {$('ul').css('top','100px');} else{ $('ul').css('top','160px');}
+	});
+	
+	
+	$('#logo').on('click', () => {
+		$('html,body').animate({
+			scrollTop: 0
+		},500);
+	});
+	
+	
+	$('a[href*="#"]').on('click', function(e){
+		$('html,body').animate({
+			scrollTop: $($(this).attr('href')).offset().top - 100
+		},500);
+		e.preventDefault();
+	});
+	
+		$('#menu-toggle').on('click', () => {
+		$('#menu-toggle').toggleClass('closeMenu');
+		$('ul').toggleClass('showMenu');
+		
+		$('li').on('click', () => {
+			$('ul').removeClass('showMenu');
+			$('#menu-toggle').removeClass('closeMenu');
+		});
+	});
+
+	
+});
+  var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slide");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+     <script>
+
+</script>
+       
+</body>
+</html>
